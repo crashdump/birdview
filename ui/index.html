@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AWS Resources</title>
+</head>
+
+<body>
+<h1>AWS Resources</h1>
+
+<table>
+    <tr>
+        <th>Account</th>
+        <th>Region</th>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Version</th>
+    </tr>
+</table>
+<br/>
+
+<script>
+    resourceTable = document.querySelector("table")
+    // Use the browsers `fetch` API to make a GET call to /resources
+    // We expect the response to be a JSON list of birds, of the form :
+    // [ {"account": "1234567890","type": "EKS", name: "clusterX", "region": "eu-west-1", "version": "v1.2.3", "eol":"01/01/2021"}, ... ]
+
+    fetch("/resources")
+        .then(response => response.json())
+        .then(resourcesList => {
+            //Once we fetch the list, we iterate over it
+            resourcesList.forEach(resource => {
+                // Create the table row
+                let row = document.createElement("tr")
+
+                // Create the table data elements for the species and description columns
+                let account = document.createElement("td")
+                account.innerHTML = resource.account
+
+                let region = document.createElement("td")
+                region.innerHTML = resource.region
+
+                let type = document.createElement("td")
+                type.innerHTML = resource.type
+
+                let name = document.createElement("td")
+                name.innerHTML = resource.name
+
+                let version = document.createElement("td")
+                version.innerHTML = resource.version
+
+                // Add the data elements to the row
+                row.appendChild(account)
+                row.appendChild(region)
+                row.appendChild(type)
+                row.appendChild(name)
+                row.appendChild(version)
+
+                // Finally, add the row element to the table itself
+                resourceTable.appendChild(row)
+            })
+        })
+</script>
+</body>
+
+</html>
