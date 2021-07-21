@@ -2,7 +2,7 @@ project_name: birdview
 release:
   github:
     owner: crashdump
-    name: birdviewt
+    name: birdview
   name_template: 'Release {{.Tag}}'
 before:
   hooks:

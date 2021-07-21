@@ -22,7 +22,7 @@ func Router() *mux.Router {
 	r.HandleFunc("/", handlerGetRoot).Methods("GET")
 	staticFileDirectory := http.Dir(dir + "/ui/")
 	staticFileHandler := http.StripPrefix("/ui/", http.FileServer(staticFileDirectory))
-	r.PathPrefix("/ui").Handler(staticFileHandler).Methods("GET")
+	r.PathPrefix("/ui/").Handler(staticFileHandler).Methods("GET")
 
 	// API
 	r.HandleFunc("/api/v1/sync", handlerPutSync).Methods("PUT")

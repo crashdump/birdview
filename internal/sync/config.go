@@ -13,7 +13,6 @@ import (
 	"log"
 )
 
-
 func (c *clients) GetResources() model.Resources {
 	resourceIds, err := c.configDiscoverResources()
 	if err != nil {
@@ -110,7 +109,6 @@ func (c *clients) configGetResourceDetails(resourceIdentifiers []configTypes.Agg
 	return results, nil
 }
 
-
 func (c *clients) configDiscoverResources() ([]configTypes.AggregateResourceIdentifier, error) {
 	aggregatorName := "callsign-sub-accounts"
 	var results []configTypes.AggregateResourceIdentifier
@@ -127,7 +125,7 @@ func (c *clients) configDiscoverResources() ([]configTypes.AggregateResourceIden
 
 	for _, t := range &resourceTypes {
 		input := &configservice.ListAggregateDiscoveredResourcesInput{
-			ResourceType: t,
+			ResourceType:                t,
 			ConfigurationAggregatorName: &aggregatorName,
 		}
 
@@ -138,7 +136,6 @@ func (c *clients) configDiscoverResources() ([]configTypes.AggregateResourceIden
 		}
 		results = append(results, result.ResourceIdentifiers...)
 	}
-
 
 	return results, nil
 }
