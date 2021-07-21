@@ -35,7 +35,7 @@ func (c *clients) GetResources() model.Resources {
 			results = append(results, model.Resource{
 				Account: *r.AccountId,
 				Name:    *r.ResourceName,
-				Type:    "AWS::EKS::Cluster",
+				Service: "AWS::EKS::Cluster",
 				Region:  *r.AwsRegion,
 				Version: *configuration.Version,
 			})
@@ -48,7 +48,7 @@ func (c *clients) GetResources() model.Resources {
 			results = append(results, model.Resource{
 				Account: *r.AccountId,
 				Name:    *r.ResourceName,
-				Type:    "AWS::RDS::DBCluster",
+				Service: "AWS::RDS::DBCluster",
 				Region:  *r.AwsRegion,
 				Version: *configuration.EngineVersion,
 			})
@@ -61,7 +61,7 @@ func (c *clients) GetResources() model.Resources {
 			results = append(results, model.Resource{
 				Account: *r.AccountId,
 				Name:    *r.ResourceName,
-				Type:    "AWS::Elasticsearch::Domain",
+				Service: "AWS::Elasticsearch::Domain",
 				Region:  *r.AwsRegion,
 				Version: *configuration.ElasticsearchVersion,
 			})
@@ -74,13 +74,12 @@ func (c *clients) GetResources() model.Resources {
 			results = append(results, model.Resource{
 				Account: *r.AccountId,
 				Name:    *r.ResourceName,
-				Type:    "AWS::ElastiCache::CacheCluster",
+				Service: "AWS::ElastiCache::CacheCluster",
 				Region:  *r.AwsRegion,
 				Version: *configuration.EngineVersion,
 			})
 		}
 	}
-
 	return results
 }
 

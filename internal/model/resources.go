@@ -1,10 +1,10 @@
 package model
 
 type Resource struct {
+	Name      string `json:"name"`
 	Account   string `json:"account"`
 	Region    string `json:"region"`
-	Type      string `json:"type"`
-	Name      string `json:"name"`
+	Service   string `json:"service"`
 	Version   string `json:"version"`
 }
 

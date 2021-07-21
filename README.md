@@ -2,6 +2,8 @@
 
 Birdview was built to facilitate management of large cloud estates by providing a one pane of glass view of the service and resources status.
 
+![screenshot](https://raw.githubusercontent.com/crashdump/birdview/master/screenshot.png)
+
 # How to
 
 Run
@@ -11,7 +13,6 @@ Run
 Build
 
     make test build
-
 
 # Configuration
 

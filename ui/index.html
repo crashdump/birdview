@@ -1,119 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>AWS Resources</title>
+	<title>Bird view</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="images/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.2/css/perfect-scrollbar.css">
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
-
 <body>
-<h1>Events</h1>
-<table id="table-events">
-    <tr>
-        <th>Name</th>
-        <th>Account</th>
-        <th>Region</th>
-        <th>Service</th>
-        <th>StartTime</th>
-        <th>Status</th>
-    </tr>
-</table>
+	<div class="limiter">
+		<div class="container-table100">
 
-<h1>Resources</h1>
-<table id="table-resources">
-    <tr>
-        <th>Account</th>
-        <th>Region</th>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Version</th>
-    </tr>
-</table>
-<br/>
+			<div class="title">
+				<img align=left src="images/eagle.png" /><h4>Cloud Dashboard</h4>
+			</div>
+			<br/>
 
-<script>
-    // Use the browsers `fetch` API to make a GET call to /resources
-    // We expect the response to be a JSON list of birds, of the form :
-    // [ {"account": "1234567890","type": "EKS", name: "clusterX", "region": "eu-west-1", "version": "v1.2.3", "eol":"01/01/2021"}, ... ]
-    resourcesTable = document.querySelector("#table-resources")
-    fetch("/api/v1/resources")
-        .then(response => response.json())
-        .then(resourcesList => {
-            //Once we fetch the list, we iterate over it
-            resourcesList.forEach(resource => {
-                // Create the table row
-                let row = document.createElement("tr")
+			<div class="wrap-table100">
+				<h3>Events</h3><br/>
 
-                // Create the table data elements for the species and description columns
-                let account = document.createElement("td")
-                account.innerHTML = resource.account
+				<div class="table100 ver1 m-b-80">
+					<div class="table100-head">
+						<table id="table-events-head">
+							<thead>
+								<tr class="row100 head">
+									<th class="cell100 column1">Name</th>
+									<th class="cell100 column2">Account</th>
+									<th class="cell100 column3">Region</th>
+									<th class="cell100 column4">Service</th>
+									<th class="cell100 column5">StartTime</th>
+									<th class="cell100 column5">Status</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
 
-                let region = document.createElement("td")
-                region.innerHTML = resource.region
+					<div class="table100-body table100-body-events js-pscroll">
+						<table>
+							<tbody id="table-events-body">
+								<!-- let the magic be -->
+							</tbody>
+						</table>
+					</div>
+				</div>
 
-                let type = document.createElement("td")
-                type.innerHTML = resource.type
+				<h3>Resources</h3><br/>
+				
+				<div class="table100 ver1 m-b-80">
+					<div class="table100-head">
+						<table id="table-resources-head">
+							<thead>
+								<tr class="row100 head">
+									<th class="cell100 column1">Name</th>
+									<th class="cell100 column2">Account</th>
+									<th class="cell100 column3">Region</th>
+									<th class="cell100 column4">Service</th>
+									<th class="cell100 column5">Version</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
 
-                let name = document.createElement("td")
-                name.innerHTML = resource.name
+					<div class="table100-body table100-body-resources js-pscroll">
+						<table>
+							<tbody id="table-resources-body">
+								<!-- let the magic be -->
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-                let version = document.createElement("td")
-                version.innerHTML = resource.version
 
-                // Add the data elements to the row
-                row.appendChild(account)
-                row.appendChild(region)
-                row.appendChild(type)
-                row.appendChild(name)
-                row.appendChild(version)
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.2/perfect-scrollbar.min.js"></script>
+	<script>
+		$('.js-pscroll').each(function(){
+			var ps = new PerfectScrollbar(this);
 
-                // Finally, add the row element to the table itself
-                resourcesTable.appendChild(row)
+			$(window).on('resize', function(){
+				ps.update();
+			})
+		});
+	</script>
+ 
+	<script>
+		eventsTable = document.querySelector("#table-events-body")
+		fetch("/api/v1/events")
+				.then(response => response.json())
+				.then(eventsList => {
+					eventsList.forEach(resource => {
+						let row = document.createElement("tr")
+						row.classList.add('row100');
+						row.classList.add('body');
+
+						let name = document.createElement("td")
+						name.classList.add('cell100');
+						name.classList.add('column1');
+						name.innerHTML = resource.name
+
+						let account = document.createElement("td")
+						account.classList.add('cell100');
+						account.classList.add('column2');
+						account.innerHTML = resource.account
+
+						let region = document.createElement("td")
+						region.classList.add('cell100');
+						region.classList.add('column3');
+						region.innerHTML = resource.region
+
+						let service = document.createElement("td")
+						service.classList.add('cell100');
+						service.classList.add('column4');
+						service.innerHTML = resource.service
+
+						let start_time = document.createElement("td")
+						start_time.classList.add('cell100');
+						start_time.classList.add('column5');
+						start_time.innerHTML = resource.start_time
+
+						let status = document.createElement("td")
+						status.classList.add('cell100');
+						status.classList.add('column6');
+						status.innerHTML = resource.status
+
+						// Add the data elements to the row
+						row.appendChild(name)
+						row.appendChild(account)
+						row.appendChild(region)
+						row.appendChild(service)
+						row.appendChild(start_time)
+						row.appendChild(status)
+
+						// Finally, add the row element to the table itself
+						eventsTable.appendChild(row)
+					})
+				})
+
+        // Use the browsers `fetch` API to make a GET call to /resources
+        // We expect the response to be a JSON list of birds, of the form :
+        // [ {"account": "1234567890","type": "EKS", name: "clusterX", "region": "eu-west-1", "version": "v1.2.3", "eol":"01/01/2021"}, ... ]
+        resourcesTable = document.querySelector("#table-resources-body")
+        fetch("/api/v1/resources")
+            .then(response => response.json())
+            .then(resourcesList => {
+                resourcesList.forEach(resource => {
+                    let row = document.createElement("tr")
+					row.classList.add('row100');
+					row.classList.add('body');
+
+					// Create the table data elements for the species and description columns
+					let name = document.createElement("td")
+					name.innerHTML = resource.name
+
+                    let account = document.createElement("td")
+                    account.innerHTML = resource.account
+    
+                    let region = document.createElement("td")
+                    region.innerHTML = resource.region
+    
+                    let service = document.createElement("td")
+					service.innerHTML = resource.service
+
+                    let version = document.createElement("td")
+                    version.innerHTML = resource.version
+    
+                    // Add the data elements to the row
+					row.appendChild(name)
+					row.appendChild(account)
+                    row.appendChild(region)
+                    row.appendChild(service)
+                    row.appendChild(version)
+    
+                    // Finally, add the row element to the table itself
+                    resourcesTable.appendChild(row)
+                })
             })
-        })
-
-    eventsTable = document.querySelector("#table-events")
-    fetch("/api/v1/events")
-        .then(response => response.json())
-        .then(eventsList => {
-            //Once we fetch the list, we iterate over it
-            eventsList.forEach(resource => {
-                // Create the table row
-                let row = document.createElement("tr")
-
-                // Create the table data elements for the species and description columns
-                let name = document.createElement("td")
-                name.innerHTML = resource.name
-
-                let account = document.createElement("td")
-                account.innerHTML = resource.account
-
-                let region = document.createElement("td")
-                region.innerHTML = resource.region
-
-                let service = document.createElement("td")
-                service.innerHTML = resource.service
-
-                let start_time = document.createElement("td")
-                start_time.innerHTML = resource.start_time
-
-                let status = document.createElement("td")
-                status.innerHTML = resource.status
-
-                // Add the data elements to the row
-                row.appendChild(name)
-                row.appendChild(account)
-                row.appendChild(region)
-                row.appendChild(service)
-                row.appendChild(start_time)
-                row.appendChild(status)
-
-                // Finally, add the row element to the table itself
-                eventsTable.appendChild(row)
-            })
-        })
-</script>
+	</script>
+	<script src="js/main.js"></script>
 </body>
-
 </html>

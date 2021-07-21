@@ -15,22 +15,22 @@ func (c *clients) GetServicesEOL() model.EOLs {
 		model.EOL{
 			Type:    "AWS::RDS::DBInstance",
 			Version: "",
-			EOL:     time.Date(0, time.January, 1,0,0,0,0,time.UTC),
+			EOL:     time.Time{},
 		},
 		model.EOL{
 			Type:    "AWS::RDS::DBInstance",
 			Version: "",
-			EOL:     time.Date(0, time.January, 1,0,0,0,0,time.UTC),
+			EOL:     time.Time{},
 		},
 		model.EOL{
 			Type:    "AWS::RDS::DBInstance",
 			Version: "",
-			EOL:     time.Date(0, time.January, 1,0,0,0,0,time.UTC),
+			EOL:     time.Time{},
 		},
 		model.EOL{
 			Type:    "AWS::RDS::DBInstance",
 			Version: "",
-			EOL:     time.Date(0, time.January, 1,0,0,0,0,time.UTC),
+			EOL:     time.Time{},
 		},
 
 		/*
@@ -39,22 +39,22 @@ func (c *clients) GetServicesEOL() model.EOLs {
 		model.EOL{
 			Type:    "AWS::ElastiCache::CacheCluster",
 			Version: "",
-			EOL:     time.Date(0, time.January, 1,0,0,0,0,time.UTC),
+			EOL:     time.Time{},
 		},
 		model.EOL{
 			Type:    "AWS::ElastiCache::CacheCluster",
 			Version: "",
-			EOL:     time.Date(0, time.January, 1,0,0,0,0,time.UTC),
+			EOL:     time.Time{},
 		},
 		model.EOL{
 			Type:    "AWS::ElastiCache::CacheCluster",
 			Version: "",
-			EOL:     time.Date(0, time.January, 1,0,0,0,0,time.UTC),
+			EOL:     time.Time{},
 		},
 		model.EOL{
 			Type:    "AWS::ElastiCache::CacheCluster",
 			Version: "",
-			EOL:     time.Date(0, time.January, 1,0,0,0,0,time.UTC),
+			EOL:     time.Time{},
 		},
 
 		/*
@@ -140,25 +140,28 @@ func (c *clients) GetServicesEOL() model.EOLs {
 			EOL:     time.Date(2022, time.September,1,0,0,0,0,time.UTC),
 		},
 
-
-		// MSK
+		/*
+		MSK
+		 */
 		model.EOL{
 			Type:    "AWS::MSK::Cluster",
 			Version: "1",
-			EOL:     time.Date(0, time.January, 1,0,0,0,0,time.UTC),
+			EOL:     time.Time{},
 		},
 		model.EOL{
 			Type:    "AWS::MSK::Cluster",
 			Version: "2",
-			EOL:     time.Date(0, time.January, 1,0,0,0,0,time.UTC),
-		},		model.EOL{
+			EOL:     time.Time{},
+		},
+		model.EOL{
 			Type:    "AWS::MSK::Cluster",
 			Version: "3",
-			EOL:     time.Date(0, time.January, 1,0,0,0,0,time.UTC),
-		},		model.EOL{
+			EOL:     time.Time{},
+		},
+		model.EOL{
 			Type:    "AWS::MSK::Cluster",
 			Version: "4",
-			EOL:     time.Date(0, time.January, 1,0,0,0,0,time.UTC),
+			EOL:     time.Time{},
 		},
 
 	}
