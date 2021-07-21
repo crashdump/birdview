@@ -9,3 +9,6 @@ type Resource struct {
 }
 
 type Resources []Resource
+
+
+

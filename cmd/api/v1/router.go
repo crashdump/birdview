@@ -25,10 +25,11 @@ func Router() *mux.Router {
 	r.PathPrefix("/ui").Handler(staticFileHandler).Methods("GET")
 
 	// API
-	r.PathPrefix("/api/v1")
-	r.HandleFunc("/sync", handlerPutSync).Methods("PUT")
-	r.HandleFunc("/resources", handlerGetResources).Methods("GET")
-	r.HandleFunc("/version", handlerGetVersion).Methods("GET")
+	r.HandleFunc("/api/v1/sync", handlerPutSync).Methods("PUT")
+	r.HandleFunc("/api/v1/resources", handlerGetResources).Methods("GET")
+	r.HandleFunc("/api/v1/eol", handlerGetEOLs).Methods("GET")
+	r.HandleFunc("/api/v1/events", handlerGetHealthEvents).Methods("GET")
+	r.HandleFunc("/api/v1/version", handlerGetVersion).Methods("GET")
 
 	return r
 }
@@ -37,9 +38,19 @@ func handlerGetRoot(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/ui/index.html", 302)
 }
 
+func handlerGetHealthEvents(w http.ResponseWriter, r *http.Request) {
+	s := sync.Init()
+	json.NewEncoder(w).Encode(s.GetHealthEvents())
+}
+
 func handlerGetResources(w http.ResponseWriter, r *http.Request) {
 	s := sync.Init()
 	json.NewEncoder(w).Encode(s.GetResources())
+}
+
+func handlerGetEOLs(w http.ResponseWriter, r *http.Request) {
+	s := sync.Init()
+	json.NewEncoder(w).Encode(s.GetServicesEOL())
 }
 
 func handlerPutSync(w http.ResponseWriter, r *http.Request) {

@@ -2,12 +2,89 @@ package sync
 
 import (
 	"context"
+	"encoding/json"
 	"github.com/aws/aws-sdk-go-v2/service/configservice"
 	configTypes "github.com/aws/aws-sdk-go-v2/service/configservice/types"
+	eksTypes "github.com/aws/aws-sdk-go-v2/service/eks/types"
+	elasticacheTypes "github.com/aws/aws-sdk-go-v2/service/elasticache/types"
+	elasticsearchTypes "github.com/aws/aws-sdk-go-v2/service/elasticsearchservice/types"
+	rdsTypes "github.com/aws/aws-sdk-go-v2/service/rds/types"
+	"github.com/crashdump/birdview/internal/model"
 	"log"
 )
 
-func (c *clients) getResourcesConfig(resourceIdentifiers []configTypes.AggregateResourceIdentifier) ([]configTypes.BaseConfigurationItem, error) {
+
+func (c *clients) GetResources() model.Resources {
+	resourceIds, err := c.configDiscoverResources()
+	if err != nil {
+		log.Fatalf(err.Error())
+	}
+
+	resourceConfigs, err := c.configGetResourceDetails(resourceIds)
+	if err != nil {
+		log.Fatalf(err.Error())
+	}
+
+	var results model.Resources
+
+	for _, r := range resourceConfigs {
+		if r.ResourceType == "AWS::EKS::Cluster" {
+			var configuration eksTypes.Cluster
+			_ = json.Unmarshal([]byte(*r.Configuration), &configuration)
+
+			results = append(results, model.Resource{
+				Account: *r.AccountId,
+				Name:    *r.ResourceName,
+				Type:    "AWS::EKS::Cluster",
+				Region:  *r.AwsRegion,
+				Version: *configuration.Version,
+			})
+		}
+
+		if r.ResourceType == "AWS::RDS::DBCluster" {
+			var configuration rdsTypes.DBInstance
+			_ = json.Unmarshal([]byte(*r.Configuration), &configuration)
+
+			results = append(results, model.Resource{
+				Account: *r.AccountId,
+				Name:    *r.ResourceName,
+				Type:    "AWS::RDS::DBCluster",
+				Region:  *r.AwsRegion,
+				Version: *configuration.EngineVersion,
+			})
+		}
+
+		if r.ResourceType == "AWS::Elasticsearch::Domain" {
+			var configuration elasticsearchTypes.ElasticsearchDomainStatus
+			_ = json.Unmarshal([]byte(*r.Configuration), &configuration)
+
+			results = append(results, model.Resource{
+				Account: *r.AccountId,
+				Name:    *r.ResourceName,
+				Type:    "AWS::Elasticsearch::Domain",
+				Region:  *r.AwsRegion,
+				Version: *configuration.ElasticsearchVersion,
+			})
+		}
+
+		if r.ResourceType == "AWS::ElastiCache::CacheCluster" {
+			var configuration elasticacheTypes.CacheCluster
+			_ = json.Unmarshal([]byte(*r.Configuration), &configuration)
+
+			results = append(results, model.Resource{
+				Account: *r.AccountId,
+				Name:    *r.ResourceName,
+				Type:    "AWS::ElastiCache::CacheCluster",
+				Region:  *r.AwsRegion,
+				Version: *configuration.EngineVersion,
+			})
+		}
+	}
+
+	return results
+}
+
+func (c *clients) configGetResourceDetails(resourceIdentifiers []configTypes.AggregateResourceIdentifier) ([]configTypes.BaseConfigurationItem, error) {
 	aggregatorName := "callsign-sub-accounts"
 	var results []configTypes.BaseConfigurationItem
 
@@ -35,15 +112,14 @@ func (c *clients) getResourcesConfig(resourceIdentifiers []configTypes.Aggregate
 }
 
 
-func (c *clients) getDiscoveredResources() ([]configTypes.AggregateResourceIdentifier, error) {
+func (c *clients) configDiscoverResources() ([]configTypes.AggregateResourceIdentifier, error) {
 	aggregatorName := "callsign-sub-accounts"
 	var results []configTypes.AggregateResourceIdentifier
 
 	// List of resource types pulled from
 	// github.com/sync/sync-sdk-go/models/apis/config/2014-11-12/api-2.json
 	var resourceTypes = [...]configTypes.ResourceType{
-		"AWS::EC2::Instance",
-		"AWS::RDS::DBInstance",
+		"AWS::RDS::DBCluster",
 		"AWS::EKS::Cluster",
 		"AWS::ElastiCache::CacheCluster",
 		"AWS::Elasticsearch::Domain",
