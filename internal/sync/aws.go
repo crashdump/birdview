@@ -42,7 +42,7 @@ func Init() clients {
 	}
 
 	return clients{
-		 ConfigClient: *configservice.NewFromConfig(awsConfigCfg),
-		 HealthClient: *health.NewFromConfig(awsHealthCfg),
+		ConfigClient: *configservice.NewFromConfig(awsConfigCfg),
+		HealthClient: *health.NewFromConfig(awsHealthCfg),
 	}
 }
