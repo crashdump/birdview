@@ -11,17 +11,18 @@ import (
 	rdsTypes "github.com/aws/aws-sdk-go-v2/service/rds/types"
 	"github.com/crashdump/birdview/internal/model"
 	"log"
+	"sort"
 )
 
 func (c *clients) GetResources() model.Resources {
 	resourceIds, err := c.configDiscoverResources()
 	if err != nil {
-		log.Fatalf(err.Error())
+		log.Printf(err.Error())
 	}
 
 	resourceConfigs, err := c.configGetResourceDetails(resourceIds)
 	if err != nil {
-		log.Fatalf(err.Error())
+		log.Printf(err.Error())
 	}
 
 	var results model.Resources
@@ -79,6 +80,8 @@ func (c *clients) GetResources() model.Resources {
 			})
 		}
 	}
+
+	sort.Sort(results)
 	return results
 }
 
@@ -100,7 +103,7 @@ func (c *clients) configGetResourceDetails(resourceIdentifiers []configTypes.Agg
 
 		r, err := c.ConfigClient.BatchGetAggregateResourceConfig(context.TODO(), input)
 		if err != nil {
-			log.Fatalf("Error BatchGetAggregateResourceConfig: %v\n", err)
+			log.Printf("Error BatchGetAggregateResourceConfig: %v\n", err)
 			return nil, err
 		}
 		results = append(results, r.BaseConfigurationItems...)

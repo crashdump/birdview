@@ -14,7 +14,7 @@ func (c *clients) GetHealthEvents() model.HealthEvents {
 	// DescribeEventsForOrganizationOutput
 	events, err := c.HealthClient.DescribeEventsForOrganization(context.TODO(), input)
 	if err != nil {
-		log.Fatalf("Error DescribeEventsForOrganization: %v\n", err)
+		log.Printf("Error DescribeEventsForOrganization: %v\n", err)
 		return nil
 	}
 

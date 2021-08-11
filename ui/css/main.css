@@ -162,7 +162,7 @@ iframe {
 }
 
 .wrap-table100 {
-  width: 1170px;
+  width: 95%;
 }
 
 /* ------------------------------------ */
@@ -206,8 +206,7 @@ th, td {
 }
 
 .table100-body td {
-  padding-top: 16px;
-  padding-bottom: 16px;
+  padding: 16px;
 }
 
 /* ------------------------------------ */

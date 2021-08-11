@@ -11,6 +11,7 @@ import (
 )
 
 var usage = `usage: birdview [--version] [--help]`
+var port = "8000"
 
 func main() {
 	help := flag.Bool("help", false, "display the usage")
@@ -28,12 +29,12 @@ func main() {
 	}
 
 	srv := &http.Server{
-		Addr:         "127.0.0.1:8080",
+		Addr:         fmt.Sprintf("127.0.0.1:%s", port),
 		Handler:      v1.Router(),
 		ReadTimeout:  30 * time.Second,
 		WriteTimeout: 30 * time.Second,
 	}
 
-	log.Println("Routes parsed, webserver starting on :8080")
+	log.Printf("Routes parsed, webserver starting on :%s", port)
 	log.Fatal(srv.ListenAndServe())
 }
