@@ -1,6 +1,6 @@
 github.com/aws/aws-sdk-go-v2 v1.7.1/go.mod h1:L5LuPC1ZgDr2xQS7AmIec/Jlc7O/Y1u2KxJyNVab250=
-github.com/aws/aws-sdk-go-v2 v1.9.0 h1:+S+dSqQCN3MSU5vJRu1HqHrq00cJn6heIMU7X9hcsoo=
-github.com/aws/aws-sdk-go-v2 v1.9.0/go.mod h1:cK/D0BBs0b/oWPIcX/Z/obahJK1TT7IPVjy53i/mX/4=
+github.com/aws/aws-sdk-go-v2 v1.9.1 h1:ZbovGV/qo40nrOJ4q8G33AGICzaPI45FHQWJ9650pF4=
+github.com/aws/aws-sdk-go-v2 v1.9.1/go.mod h1:cK/D0BBs0b/oWPIcX/Z/obahJK1TT7IPVjy53i/mX/4=
 github.com/aws/aws-sdk-go-v2/config v1.5.0 h1:tRQcWXVmO7wC+ApwYc2LiYKfIBoIrdzcJ+7HIh6AlR0=
 github.com/aws/aws-sdk-go-v2/config v1.5.0/go.mod h1:RWlPOAW3E3tbtNAqTwvSW54Of/yP3oiZXMI0xfUdjyA=
 github.com/aws/aws-sdk-go-v2/credentials v1.3.1 h1:fFeqL5+9kwFKsCb2oci5yAIDsWYqn/Nga8oQ5bIasI8=
@@ -15,8 +15,8 @@ github.com/aws/aws-sdk-go-v2/service/eks v1.8.0 h1:lNMoOfN0Px+EmI/fAhCgOGRPb8OR1
 github.com/aws/aws-sdk-go-v2/service/eks v1.8.0/go.mod h1:ZKbSOnMnu0b+gUyxFXXaJmNBd/QorXRaf6tJJ4CcYBs=
 github.com/aws/aws-sdk-go-v2/service/elasticache v1.8.0 h1:5i4QuP1r+4tJ1gscHqUPC5jhs8qgstmym9A93n9amsM=
 github.com/aws/aws-sdk-go-v2/service/elasticache v1.8.0/go.mod h1:HNFknFCXy4lpYPQxBKMxYFP7QbEwB7dSm7wybxoqysU=
-github.com/aws/aws-sdk-go-v2/service/elasticsearchservice v1.6.0 h1:6s8tm+eScRRCcjvPQrx885bFxVkIzSg3W7MHUk6N5n8=
-github.com/aws/aws-sdk-go-v2/service/elasticsearchservice v1.6.0/go.mod h1:Dn5Q1shaGNvypFwVkL61eRn25iXagP2H8swgRKPR+ak=
+github.com/aws/aws-sdk-go-v2/service/elasticsearchservice v1.7.0 h1:x382lwnfjHlg09vvmuqCXJ/TTl06mdRyFlS2Dt8LfGg=
+github.com/aws/aws-sdk-go-v2/service/elasticsearchservice v1.7.0/go.mod h1:R7G53n+ZZbcwUAiXPUXiwqsUmutqrERhVRYiADXnRgU=
 github.com/aws/aws-sdk-go-v2/service/health v1.6.0 h1:7fI4nz+Qi4ZdAIwTcHsf7qtkkghNi+3H0V7h/W29Ci0=
 github.com/aws/aws-sdk-go-v2/service/health v1.6.0/go.mod h1:KlvAYZlBBq3yGpGQdVENfsR3vIF8lg+5myFnwM7m5AM=
 github.com/aws/aws-sdk-go-v2/service/internal/presigned-url v1.2.1 h1:VJe/XEhrfyfBLupcGg1BfUSK2VMZNdbDcZQ49jnp+h0=
