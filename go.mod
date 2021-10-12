@@ -4,7 +4,7 @@ go 1.16
 
 require (
 	github.com/aws/aws-sdk-go-v2/config v1.5.0
-	github.com/aws/aws-sdk-go-v2/service/configservice v1.6.1
+	github.com/aws/aws-sdk-go-v2/service/configservice v1.9.2
 	github.com/aws/aws-sdk-go-v2/service/eks v1.8.0
 	github.com/aws/aws-sdk-go-v2/service/elasticache v1.8.0
 	github.com/aws/aws-sdk-go-v2/service/elasticsearchservice v1.6.0
