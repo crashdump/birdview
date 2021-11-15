@@ -3,7 +3,7 @@ module github.com/crashdump/birdview
 go 1.16
 
 require (
-	github.com/aws/aws-sdk-go-v2/config v1.5.0
+	github.com/aws/aws-sdk-go-v2/config v1.10.1
 	github.com/aws/aws-sdk-go-v2/service/configservice v1.10.0
 	github.com/aws/aws-sdk-go-v2/service/eks v1.8.0
 	github.com/aws/aws-sdk-go-v2/service/elasticache v1.12.0
