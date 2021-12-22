@@ -23,8 +23,8 @@ github.com/aws/aws-sdk-go-v2/service/elasticache v1.12.0 h1:JGeKQ+alYN292H8TiA+r
 github.com/aws/aws-sdk-go-v2/service/elasticache v1.12.0/go.mod h1:7YZ00jtj8kK0oFgKSmV5+qA3Fttw7adi53IffdA8XoI=
 github.com/aws/aws-sdk-go-v2/service/elasticsearchservice v1.6.0 h1:6s8tm+eScRRCcjvPQrx885bFxVkIzSg3W7MHUk6N5n8=
 github.com/aws/aws-sdk-go-v2/service/elasticsearchservice v1.6.0/go.mod h1:Dn5Q1shaGNvypFwVkL61eRn25iXagP2H8swgRKPR+ak=
-github.com/aws/aws-sdk-go-v2/service/health v1.6.0 h1:7fI4nz+Qi4ZdAIwTcHsf7qtkkghNi+3H0V7h/W29Ci0=
-github.com/aws/aws-sdk-go-v2/service/health v1.6.0/go.mod h1:KlvAYZlBBq3yGpGQdVENfsR3vIF8lg+5myFnwM7m5AM=
+github.com/aws/aws-sdk-go-v2/service/health v1.11.0 h1:HubAlimqPlbkkPci50EtEeNoYaGTiSjlEkb0z/LSeZ8=
+github.com/aws/aws-sdk-go-v2/service/health v1.11.0/go.mod h1:Lilm1r4Mnx1BOoLF4GjD9LoM34gZIbrW94uRS/YA6Cw=
 github.com/aws/aws-sdk-go-v2/service/internal/presigned-url v1.2.1/go.mod h1:zceowr5Z1Nh2WVP8bf/3ikB41IZW59E4yIYbg+pC6mw=
 github.com/aws/aws-sdk-go-v2/service/internal/presigned-url v1.5.2 h1:CKdUNKmuilw/KNmO2Q53Av8u+ZyXMC2M9aX8Z+c/gzg=
 github.com/aws/aws-sdk-go-v2/service/internal/presigned-url v1.5.2/go.mod h1:FgR1tCsn8C6+Hf+N5qkfrE4IXvUL1RgW87sunJ+5J4I=
