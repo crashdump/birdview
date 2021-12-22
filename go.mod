@@ -6,7 +6,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/config v1.11.0
 	github.com/aws/aws-sdk-go-v2/service/configservice v1.10.0
 	github.com/aws/aws-sdk-go-v2/service/eks v1.15.1
-	github.com/aws/aws-sdk-go-v2/service/elasticache v1.12.0
+	github.com/aws/aws-sdk-go-v2/service/elasticache v1.16.0
 	github.com/aws/aws-sdk-go-v2/service/elasticsearchservice v1.6.0
 	github.com/aws/aws-sdk-go-v2/service/health v1.6.0
 	github.com/aws/aws-sdk-go-v2/service/rds v1.6.0
