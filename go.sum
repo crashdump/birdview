@@ -17,8 +17,8 @@ github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 v2.4.2 h1:XXR3cdOcKRCTZf6ctcq
 github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 v2.4.2/go.mod h1:1x4ZP3Z8odssdhuLI+/1Tqw6Pt/VAaP4Tr8EUxHvPXE=
 github.com/aws/aws-sdk-go-v2/internal/ini v1.3.2 h1:IQup8Q6lorXeiA/rK72PeToWoWK8h7VAPgHNWdSrtgE=
 github.com/aws/aws-sdk-go-v2/internal/ini v1.3.2/go.mod h1:VITe/MdW6EMXPb0o0txu/fsonXbMHUU2OC2Qp7ivU4o=
-github.com/aws/aws-sdk-go-v2/service/configservice v1.10.0 h1:FxDKtXKdlcA7JXIkLEILC/Ps2Bu4KqpMWNlxvvcg5DY=
-github.com/aws/aws-sdk-go-v2/service/configservice v1.10.0/go.mod h1:pBnn0r3C7JiHI/TOPZfh5JpeFzdgZGpOTB7GT/0kto8=
+github.com/aws/aws-sdk-go-v2/service/configservice v1.20.0 h1:nV7QT3ae4RW2VracHQLn1/sTadKoCs5HkO8Q3nELOlE=
+github.com/aws/aws-sdk-go-v2/service/configservice v1.20.0/go.mod h1:eYxyDjwczj/KDOlmZijSrYMOIMKeC41UtLgsJpTbYuk=
 github.com/aws/aws-sdk-go-v2/service/eks v1.15.1 h1:ZXSYFvB8bN8JpMJDPenUktAuvMpsTHMMPW1hC+ckEJE=
 github.com/aws/aws-sdk-go-v2/service/eks v1.15.1/go.mod h1:xbz8pEpGLX0sMb5xCCWNSmp2mWNWQMZsOj6fFuCskjw=
 github.com/aws/aws-sdk-go-v2/service/elasticache v1.12.0 h1:JGeKQ+alYN292H8TiA+rXHMtOgRSCl+2UeU8AcrRFvo=
