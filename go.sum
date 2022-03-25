@@ -1,4 +1,3 @@
-github.com/aws/aws-sdk-go-v2 v1.7.1/go.mod h1:L5LuPC1ZgDr2xQS7AmIec/Jlc7O/Y1u2KxJyNVab250=
 github.com/aws/aws-sdk-go-v2 v1.10.0/go.mod h1:U/EyyVvKtzmFeQQcca7eBotKdlpcP2zzU6bXBYcf7CE=
 github.com/aws/aws-sdk-go-v2 v1.11.2/go.mod h1:SQfA+m2ltnu1cA0soUkj4dRSsmITiVQUJvBIZjzfPyQ=
 github.com/aws/aws-sdk-go-v2 v1.16.1 h1:udzee98w8H6ikRgtFdVN9JzzYEbi/quFfSvduZETJIU=
@@ -25,8 +24,8 @@ github.com/aws/aws-sdk-go-v2/service/elasticache v1.12.0 h1:JGeKQ+alYN292H8TiA+r
 github.com/aws/aws-sdk-go-v2/service/elasticache v1.12.0/go.mod h1:7YZ00jtj8kK0oFgKSmV5+qA3Fttw7adi53IffdA8XoI=
 github.com/aws/aws-sdk-go-v2/service/elasticsearchservice v1.15.2 h1:tKpSDfTQtD1C0HLbTybTlE5unuJTSRtb777bmTZjxuY=
 github.com/aws/aws-sdk-go-v2/service/elasticsearchservice v1.15.2/go.mod h1:XydcgFp/YVZ8IHRzfZMGeIej7uykm7zNhy9MrPyExjk=
-github.com/aws/aws-sdk-go-v2/service/health v1.6.0 h1:7fI4nz+Qi4ZdAIwTcHsf7qtkkghNi+3H0V7h/W29Ci0=
-github.com/aws/aws-sdk-go-v2/service/health v1.6.0/go.mod h1:KlvAYZlBBq3yGpGQdVENfsR3vIF8lg+5myFnwM7m5AM=
+github.com/aws/aws-sdk-go-v2/service/health v1.15.2 h1:GaDPBEvV8rI49NtlKhvvZ/YUsTA3J/4nhXueycX7htA=
+github.com/aws/aws-sdk-go-v2/service/health v1.15.2/go.mod h1:4D4ffjLtGBmLBs0sVhr+zKb5qhgmSfLzgFe4+elnGp0=
 github.com/aws/aws-sdk-go-v2/service/internal/presigned-url v1.5.2/go.mod h1:FgR1tCsn8C6+Hf+N5qkfrE4IXvUL1RgW87sunJ+5J4I=
 github.com/aws/aws-sdk-go-v2/service/internal/presigned-url v1.9.2 h1:RrN7V0r8+lUUKZM4OAoCOIZqjPLZPOl6wuwMd2QIryI=
 github.com/aws/aws-sdk-go-v2/service/internal/presigned-url v1.9.2/go.mod h1:7hwSi01X5Yj9H0qLQljrn8OSdLwwSym1aQCfGn1tDQQ=
@@ -36,7 +35,6 @@ github.com/aws/aws-sdk-go-v2/service/sso v1.6.2 h1:2IDmvSb86KT44lSg1uU4ONpzgWLOu
 github.com/aws/aws-sdk-go-v2/service/sso v1.6.2/go.mod h1:KnIpszaIdwI33tmc/W/GGXyn22c1USYxA/2KyvoeDY0=
 github.com/aws/aws-sdk-go-v2/service/sts v1.11.1 h1:QKR7wy5e650q70PFKMfGF9sTo0rZgUevSSJ4wxmyWXk=
 github.com/aws/aws-sdk-go-v2/service/sts v1.11.1/go.mod h1:UV2N5HaPfdbDpkgkz4sRzWCvQswZjdO1FfqCWl0t7RA=
-github.com/aws/smithy-go v1.6.0/go.mod h1:SObp3lf9smib00L/v3U2eAKG8FyQ7iLrJnQiAmR5n+E=
 github.com/aws/smithy-go v1.8.1/go.mod h1:SObp3lf9smib00L/v3U2eAKG8FyQ7iLrJnQiAmR5n+E=
 github.com/aws/smithy-go v1.9.0/go.mod h1:SObp3lf9smib00L/v3U2eAKG8FyQ7iLrJnQiAmR5n+E=
 github.com/aws/smithy-go v1.11.2 h1:eG/N+CcUMAvsdffgMvjMKwfyDzIkjM6pfxMJ8Mzc6mE=
